@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-namespace App\Models\Application;
 
+use App\Models\Application;
 use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
@@ -39,7 +39,7 @@ class ApplicationController extends Controller
         $application->title=$this->test_data($request->input("title"));
         $application->image_url=$path;
         $application->location=$this->test_data($request->input("location"));
-        $application.save();
+        $application->save();
 
         return redirect()->route('home')->with("message", "Applied Successfully");
     }
