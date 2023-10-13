@@ -16,9 +16,9 @@ class ApprovalMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+     public function __construct( $name)
     {
-        //
+         $this->name = $name;
     }
 
     /**
@@ -28,6 +28,6 @@ class ApprovalMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.emails.approve')->with(['fullname'=>$this->fullname])->subject("Application Update");
+        return $this->view('view.emails.approveMail')->with(['name'=>$this->name])->subject("Application Update");
     }
 }

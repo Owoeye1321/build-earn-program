@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->string("id");
-            $table->string("fullname");
+            $table->id();
+            $table->string("name");
             $table->string("email")->unique();
             $table->string("phone_number");
             $table->string("title");
             $table->string("location");
-            $table->text("image_url");
+            $table->text("file");
             $table->boolean("status");
             $table->timestamps();
         });
