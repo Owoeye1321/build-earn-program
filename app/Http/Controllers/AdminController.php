@@ -32,7 +32,7 @@ class AdminController extends Controller
         $userApplication->save();
 
         //send user a rejection mail
-        Mail::to($userApplication->email)->send(new RejectionMail($userApplication));
+        Mail::to($userApplication->email)->send(new RejectionMail($userApplication->name));
 
     }
     
@@ -43,7 +43,7 @@ class AdminController extends Controller
         $userApplication->save();
 
         //send user an acceptance mail mail   
-          Mail::to($userApplication->email)->send(new ApprovalMail($userApplication));
+          Mail::to($userApplication->email)->send(new ApprovalMail($userApplication->name));
     }
 
     //this function view a candidate application

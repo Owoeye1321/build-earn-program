@@ -26,3 +26,4 @@ Route::get('/', [ApplicationController::class,'index',])->name('home');
 Route::get('/apply', [ApplicationController::class,'index',])->name('apply');
 Route::post('/apply', [ApplicationController::class,'apply',])->name('apply');
 Route::get('/home', [AdminController::class,'index',])->name('home');
+Route::get('/view/$id', [AdminController::class,'viewApplication',])->name('view');

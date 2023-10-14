@@ -40,7 +40,7 @@ class ApplicationController extends Controller
     $path = $request->file('file')->store('uploads', 'public');
     $email = $this->test_data($request->input("email"));
     // Check if a record with the same email address already exists
-    $existingRecord = Application::where('email', )->first();
+    $existingRecord = Application::where('email',$email )->first();
     if($existingRecord){
          return redirect()->back()->with('error', 'Email address is already in use');
     }

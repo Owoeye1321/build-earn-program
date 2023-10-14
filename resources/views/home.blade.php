@@ -1,16 +1,17 @@
 @extends('layouts.app')
 @section('content')
-<section class ="technology-v1">
-    @if (session('error'))
-    <div class="alert alert-danger">
+ @if (session('error'))
+    <div class="alert alert-danger" style="margin-bottom: -30px">
         {{ session('error') }}
     </div>
 @endif
  @if (session('success'))
-    <div class="alert alert-success">
+    <div class="alert alert-success"  style="margin-bottom: -30px">
         {{ session('success') }}
     </div>
 @endif
+<section class ="technology-v1">
+   
    <div class="container">
                <div class="row">
                         <div class="col-md-12 text-container">
