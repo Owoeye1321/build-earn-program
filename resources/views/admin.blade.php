@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="">
-   
    <div class="mobile">
 <nav class="navbar bg-body-tertiary fixed-top">
   <div class="container-fluid bg-body-tertiary">
@@ -46,11 +46,13 @@
   </div>
 </nav>
    </div>
-
+  
 <div class="container-fluid">
+  
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
+         
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">
@@ -126,7 +128,13 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+       @if (session('success'))
+               <div class="alert alert-success float-end mt-2" >
+                  {{ session('success') }}
+               </div>
+            @endif
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
         </div>
@@ -160,9 +168,11 @@
         <td>
           <a class="user" href="{{ 'view/' . $application->id }}">
          <button type="button" class="btn btn-primary">View CV</button> </a></td>
-        <td><button type="button" class="btn btn-success">Approve</button></td>
-        <td><button type="button" class="btn btn-danger">Reject</button></td>
-    
+       @if ($application->status == false)
+           <td> <a class="user" href="{{ 'approve/' . $application->id }}"><button type="button" class="btn btn-success">Approve</button></a></td>
+       @else
+           <td> <a class="user" href="{{ 'reject/' . $application->id }}"><button type="button" class="btn btn-danger">Reject</button></a></td>
+       @endif 
     </tr>
     
    @endforeach

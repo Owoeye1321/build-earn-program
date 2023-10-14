@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
-use App\Mail\ApproalMail;
+use App\Mail\ApprovalMail;
 use App\Mail\RejectionMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -33,6 +33,7 @@ class AdminController extends Controller
 
         //send user a rejection mail
         Mail::to($userApplication->email)->send(new RejectionMail($userApplication->name));
+           return redirect()->back()->with("success", "Rejected Successfully");
 
     }
     
@@ -44,6 +45,7 @@ class AdminController extends Controller
 
         //send user an acceptance mail mail   
           Mail::to($userApplication->email)->send(new ApprovalMail($userApplication->name));
+             return redirect()->back()->with("success", "Approved Successfully");
     }
 
     //this function view a candidate application

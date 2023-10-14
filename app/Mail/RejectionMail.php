@@ -28,6 +28,6 @@ class RejectionMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.emails.rejectionMail')->with(['name'=>$this->name])->subject("Application Update");
+        return $this->view('emails.rejectionMail')->with(['name'=>$this->name])->subject("Application Update");
     }
 }

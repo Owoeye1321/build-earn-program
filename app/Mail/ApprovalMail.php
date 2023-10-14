@@ -28,6 +28,6 @@ class ApprovalMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.emails.approveMail')->with(['name'=>$this->name])->subject("Application Update");
+        return $this->view('emails.approveMail')->with(['name'=>$this->name])->subject("Application Update");
     }
 }
