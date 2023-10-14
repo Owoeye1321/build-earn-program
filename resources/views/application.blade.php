@@ -2,9 +2,12 @@
 
 @section('content')
 <div class="container">
-   <center>
-    <h1>Working on my first stuffs</h1>
-    <a href={{'admin'}}>home</a>
-   </center>
+<center>
+<object data="{{ asset('storage/uploads/' . $userAppliation->file) }}" type="application/pdf" width="70%" height="750px">
+  <p>PDF cannot be displayed. <a href="{{ asset('storage/uploads/' . $userAppliation->file) }}">Download</a> it instead.</p>
+</object>
+</center>
+
+
 </div>
 @endsection

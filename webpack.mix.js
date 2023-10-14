@@ -18,3 +18,12 @@ mix.js("resources/js/app.js", "public/js")
         "public/webfonts"
     )
     .sourceMaps();
+
+// Add Feather Icons to your JavaScript bundle
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            "feather-icons": "feather-icons",
+        },
+    },
+});

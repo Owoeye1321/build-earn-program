@@ -50,7 +50,7 @@ class AdminController extends Controller
      public function viewApplication($id){
     $userApplication = Application::find($id);
 
-    return view('application'.[
+    return view('application',[
         'userAppliation'=> $userApplication
     ]);
         

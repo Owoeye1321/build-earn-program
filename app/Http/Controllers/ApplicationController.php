@@ -36,9 +36,14 @@ class ApplicationController extends Controller
     ]);
 
     // No need to check $request->fails(), Laravel will handle validation failure
+    $milliseconds = round(microtime(true) * 1000); // Get milliseconds
+    $extension = $request->file('file')->getClientOriginalExtension(); // Get the original file extension
 
-    $path = $request->file('file')->store('uploads', 'public');
+    // Combine the milliseconds and the original extension to create a filename
+    $filename = $milliseconds . '.' . $extension;
+    $request->file('file')->storeAs('public/uploads/', $filename);
     $email = $this->test_data($request->input("email"));
+    
     // Check if a record with the same email address already exists
     $existingRecord = Application::where('email',$email )->first();
     if($existingRecord){
@@ -49,7 +54,7 @@ class ApplicationController extends Controller
     $application->email = $email;
     $application->phone_number = $this->test_data($request->input("phone_number"));
     $application->title = $this->test_data($request->input("title"));
-    $application->file = $path;
+    $application->file = $filename;
      $application->status = false;
     $application->location = $this->test_data($request->input("location"));
      $application->save();
