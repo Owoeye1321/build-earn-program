@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
 <div class="">
    <div class="mobile">
 <nav class="navbar bg-body-tertiary fixed-top">
@@ -128,10 +130,19 @@
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+     
        @if (session('success'))
-               <div class="alert alert-success float-end mt-2" >
-                  {{ session('success') }}
-               </div>
+    <div class="toast fade show float-end" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+        <strong class="me-auto">Alerts</strong>
+        <small class="text-body-secondary">5 seconds</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        {{ session('success') }}
+      </div>
+    </div>
             @endif
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           
@@ -166,8 +177,8 @@
         <td>{{ $application->title }}</td>
         <td>{{ $application->location }}</td>
         <td>
-          <a class="user" href="{{ 'view/' . $application->id }}">
-         <button type="button" class="btn btn-primary">View CV</button> </a></td>
+          <a class="user view" href="{{ 'view/' . $application->id }}">
+         <button type="button" class="view btn btn-primary">View CV</button> </a></td>
        @if ($application->status == false)
            <td> <a class="user" href="{{ 'approve/' . $application->id }}"><button type="button" class="btn btn-success">Approve</button></a></td>
        @else

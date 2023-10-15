@@ -1,13 +1,29 @@
 @extends('layouts.app')
 @section('content')
  @if (session('error'))
-    <div class="alert alert-danger" style="margin-bottom: -30px">
+     <div class="toast fade show float-end mt-3 mx-3" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+        <strong class="me-auto">Alerts</strong>
+        <small class="text-body-secondary">5 seconds</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
         {{ session('error') }}
+      </div>
     </div>
 @endif
  @if (session('success'))
-    <div class="alert alert-success"  style="margin-bottom: -30px">
+  <div class="toast fade show float-end mt-3 mx-3" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
+        <strong class="me-auto">Alerts</strong>
+        <small class="text-body-secondary">5 seconds</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
         {{ session('success') }}
+      </div>
     </div>
 @endif
 <section class ="technology-v1">
